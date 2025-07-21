@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: elmboot
+  datasource:
+    driver-class-name: ${elmbootProject.datasource.driver-class-name:com.mysql.cj.jdbc.Driver}
+    url: jdbc:mysql://localhost:3306/elmdb?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${elmbootProject.datasource.username:root}
+    password: ${elmbootProject.datasource.password:123456}
+logging:
+  level:
+    com.neusoft.elmboot: debug
