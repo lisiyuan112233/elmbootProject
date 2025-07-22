@@ -9,3 +9,11 @@ spring:
 logging:
   level:
     com.neusoft.elmboot: debug
+mybatis-plus:
+  configuration:
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+  global-config:
+    db-config:
+      logic-delete-field: del_tag
+      logic-not-delete-value: 1
+      logic-delete-value: 0

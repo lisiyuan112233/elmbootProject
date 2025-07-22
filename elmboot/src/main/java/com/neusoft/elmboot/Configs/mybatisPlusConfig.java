@@ -1,6 +1,9 @@
 package com.neusoft.elmboot.Configs;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,22 +12,13 @@ import java.time.LocalDateTime;
 
 @Configuration
 public class mybatisPlusConfig {
+
     @Bean
-    @SuppressWarnings("all")
-    public MyMetaObjectHandler myMetaObjectHandler() {
-        return new MyMetaObjectHandler();
-    }
-}
-class MyMetaObjectHandler implements MetaObjectHandler {
-    @Override
-    public void insertFill(MetaObject metaObject) {
-        // 强制填充，无论字段是否为空
-        strictInsertFill(metaObject, "createTime", LocalDateTime.class, LocalDateTime.now());
-        strictInsertFill(metaObject, "updateTime", LocalDateTime.class, LocalDateTime.now());
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL)); // 如果配置多个插件, 切记分页最后添加
+        // 如果有多数据源可以不配具体类型, 否则都建议配上具体的 DbType
+        return interceptor;
     }
 
-    @Override
-    public void updateFill(MetaObject metaObject) {
-        strictUpdateFill(metaObject, "updateTime", LocalDateTime.class, LocalDateTime.now());
-    }
 }
