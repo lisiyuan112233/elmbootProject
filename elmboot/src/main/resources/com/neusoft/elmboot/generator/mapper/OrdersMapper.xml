@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.elmboot.generator.mapper.OrdersMapper">
+
+    <resultMap id="BaseResultMap" type="com.neusoft.elmboot.generator.entity.Orders">
+            <id property="orderId" column="order_id" />
+            <result property="userId" column="user_id" />
+            <result property="businessId" column="business_id" />
+            <result property="orderDate" column="order_date" />
+            <result property="orderTotal" column="order_total" />
+            <result property="daId" column="da_id" />
+            <result property="orderState" column="order_state" />
+            <result property="createTime" column="create_time" />
+            <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        order_id,user_id,business_id,order_date,order_total,da_id,
+        order_state,create_time,update_time
+    </sql>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.elmboot.generator.mapper.OrderDetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.neusoft.elmboot.generator.entity.OrderDetail">
+            <id property="odId" column="od_id" />
+            <result property="orderId" column="order_id" />
+            <result property="foodId" column="food_id" />
+            <result property="quantity" column="quantity" />
+            <result property="createTime" column="create_time" />
+            <result property="foodPrice" column="food_price" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        od_id,order_id,food_id,quantity,create_time,food_price
+    </sql>
+</mapper>

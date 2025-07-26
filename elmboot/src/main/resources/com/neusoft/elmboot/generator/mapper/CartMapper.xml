@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.elmboot.generator.mapper.CartMapper">
+
+    <resultMap id="BaseResultMap" type="com.neusoft.elmboot.generator.entity.Cart">
+            <id property="cartId" column="cart_id" />
+            <result property="foodId" column="food_id" />
+            <result property="businessId" column="business_id" />
+            <result property="userId" column="user_id" />
+            <result property="quantity" column="quantity" />
+            <result property="createTime" column="create_time" />
+            <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cart_id,food_id,business_id,user_id,quantity,create_time,
+        update_time
+    </sql>
+</mapper>
